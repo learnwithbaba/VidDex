@@ -1,0 +1,11 @@
+running API in background with gunicorn:
+nohup gunicorn --bind 0.0.0.0:9998 --certfile="ssl_package/certificate.crt" --keyfile="ssl_package/private.key" --timeout 300 --workers 4 wsgi:app &
+
+#command to run asynchronus workers, require package gevent
+nohup gunicorn --worker-class gevent --workers 2 --bind 0.0.0.0:9998 --certfile="ssl_package/certificate.crt" --keyfile="ssl_package/private.key" --timeout 300 --access-logfile access.log --error-logfile error.log wsgi:app &
+
+#command to see the realtime logs, print message might not be visible
+tail -f access.log error.log
+
+#command to see the realtime logs, print messages should be visible
+tail -f access.log error.log app.log
