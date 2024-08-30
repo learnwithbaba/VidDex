@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.8">
+  <diagram name="Page-1" id="tGZ6h4nX2nl4tZphvq1n">
+    <mxGraphModel dx="880" dy="460" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Uc2AiXFNQJb0ozkdS__R-1" target="Uc2AiXFNQJb0ozkdS__R-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Uc2AiXFNQJb0ozkdS__R-1" target="Uc2AiXFNQJb0ozkdS__R-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-1" value="upload file API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="37" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Uc2AiXFNQJb0ozkdS__R-2" target="Uc2AiXFNQJb0ozkdS__R-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Uc2AiXFNQJb0ozkdS__R-2" target="Uc2AiXFNQJb0ozkdS__R-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-2" value="get_item_details API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="134" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-3" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Catalog-Digitization&lt;span style=&quot;background-color: initial; font-size: 12px;&quot;&gt;:&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;Catalog digitization is a process designed to handle video processing using Gemini and subsequently upload relevant data to Firestore DB. The process involves multiple APIs to achieve the desired outcome:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1) upload_file - This API uploads a video to a Google Storage bucket and returns a `reference_id` along with a `file_uri`.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;2) get_item_details -&amp;nbsp; This API processes the video through Gemini using the `file_uri` as input. The output includes a list of items with their names, descriptions, prices, and a list of time offsets. Each item will have two distinct views captured at different time&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;3) download_image - This API extracts images from the video at the specified time offsets, uploads them to a bucket, and adds the `frame_uri` of each image to the response JSON.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;4) upload_item_details -&amp;nbsp; This API uploads the results of the `download_image` process to the Firestore DB under the `&#39;catalog&#39;` collection, using the `reference_id` as the `document_id`.&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="38" y="16" width="248" height="502" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Uc2AiXFNQJb0ozkdS__R-4" target="Uc2AiXFNQJb0ozkdS__R-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-4" value="get_item_details API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="231" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-5" value="upload_item_details API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="328" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-9" value="Implement resumable uploads with a retry mechanism on failure. Use a Python API with WSGI (Gunicorn) to extend the timeout period." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="492" y="40" width="319" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-11" value="Invoke Gemini by supplying instructions and a prompt, including the desired JSON schema within the prompt." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="492" y="137" width="319" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" target="Uc2AiXFNQJb0ozkdS__R-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="428" y="261" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-14" value="Utilize the OpenCV (&lt;code&gt;cv2&lt;/code&gt;) library in Python to open a video, extract images at specified time offsets, upload these images to a bucket, and then include the &lt;code&gt;frame_uri&lt;/code&gt; of each image in the response JSON." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="495" y="234" width="319" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" target="Uc2AiXFNQJb0ozkdS__R-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="428" y="358" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Uc2AiXFNQJb0ozkdS__R-16" value="Upload the extracted images to the Firestore database under the collection named &lt;code&gt;&#39;catalog&#39;&lt;/code&gt;. Use the &lt;code&gt;reference_id&lt;/code&gt; as the &lt;code&gt;document_id&lt;/code&gt;, ensuring each catalog has a unique identifier." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="495" y="331" width="319" height="54" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
